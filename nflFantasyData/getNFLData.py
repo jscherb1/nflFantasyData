@@ -32,19 +32,27 @@ def getFantasyFootballData(pos,year,weekNum,rulesFormat):
     df.columns = columnNames
 
     #add in some values to the results for analysis later.
-    df['week'] =  weekNum
-    df['year'] = year
-    df['position'] = pos
+    df['Week'] =  weekNum
+    df['Year'] = year
+    df['Position'] = pos
     #TODO: calculate the points for each player based on league specific rules
     return df
 
+#Configuration variables
 positionArray = ['QB','RB','WR','TE']
 rulesFormat = 'PPR'
 
 #TODO: calculate these on the fly
 yearArray = ['2019']
-weekNum = ['1','2','3','4','5','6']
+weekNumArray = ['1','2','3','4','5','6']
 
-weeklyPositionResults = getFantasyFootballData(positionArray[0],yearArray[0],weekNum[0],rulesFormat)
+weeklyPositionResults = []
 
-print(weeklyPositionResults.head())
+for year in yearArray:
+    for week in weekNumArray:
+        for position in positionArray:
+            weeklyPositionResults.append(getFantasyFootballData(position,year,week,rulesFormat))
+
+finalDf = pd.concat(weeklyPositionResults)
+
+finalDf.to_csv('Data\dataOutput.csv')
