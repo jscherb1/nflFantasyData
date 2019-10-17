@@ -21,11 +21,20 @@ def getFantasyFootballData(pos,year,weekNum,rulesFormat):
 
     df = dfs[0]
     
+    
+    #TODO: remove double headers and rename columns
+    df.columns = df.columns.droplevel()
+    columnNames = ['Player Name','Game','Fantasy Point','Passing - Att','Passing - Cmp','Passing - Yds'
+                   ,'Passing - TD','Passing - Int','Passing - 2Pt'
+                   ,'Rushing - Att','Rushing - Yds','Rushing - TD'
+                   ,'Rushing - 2Pt','Receiving - Rec','Receiving - Yds'
+                   ,'Receiving - TD','Receiving - 2Pt','Receiving - FL','Receiving - TD']
+    df.columns = columnNames
+
     #add in some values to the results for analysis later.
     df['week'] =  weekNum
     df['year'] = year
-    #TODO: remove double headers and rename columns
-
+    df['position'] = pos
     #TODO: calculate the points for each player based on league specific rules
     return df
 
@@ -36,6 +45,6 @@ rulesFormat = 'PPR'
 yearArray = ['2019']
 weekNum = ['1','2','3','4','5','6']
 
-weeklyResults = getFantasyFootballData(positionArray[0],yearArray[0],weekNum[0],rulesFormat)
+weeklyPositionResults = getFantasyFootballData(positionArray[0],yearArray[0],weekNum[0],rulesFormat)
 
-print(weeklyResults.head())
+print(weeklyPositionResults.head())

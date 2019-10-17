@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonApplication1", "PythonApplication1.pyproj", "{1917DA24-1993-4B67-9A8E-B3961E93E427}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "nflFantasyData", "nflFantasyData.pyproj", "{1917DA24-1993-4B67-9A8E-B3961E93E427}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
